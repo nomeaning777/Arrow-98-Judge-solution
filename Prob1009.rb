@@ -1,10 +1,9 @@
 Tokenizer = [[/^[()]/, "PAREN"], [/^[\[\]]/, "BRACK"], [/^[\{\}]/m, "BRACE"],
              [/^[:;,]/, "COLON"], [/^'((\\.)|[^'])*'/, "CHARA"], [/^"((\\.)|[^"])*"/, "STRNG"],
-			 [/^[a-zA-Z_][0-9a-zA-Z_]*/, "IDENT"], [/^[0-9]+/, "INTGR"], [/^#.*$/, "PREPR"],
-			 [/^(\+\+|--|==|!=|\|\||&&)/, "OPR2D"], [/^[\+-=!\|&\*\/]/ ,"OPR1D"]]
+             [/^[a-zA-Z_][0-9a-zA-Z_]*/, "IDENT"], [/^[0-9]+/, "INTGR"], [/^#.*$/, "PREPR"],
+             [/^(\+\+|--|==|!=|\|\||&&)/, "OPR2D"], [/^[\+-=!\|&\*\/]/ ,"OPR1D"]]
 while line = gets
 	while line.length > 0
-		any_match = nil
 		Tokenizer.each do |token|
 			if token[0] =~ line
 				m = token[0].match(line)
